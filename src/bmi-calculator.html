@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Calculator</title>
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.css">
+    <link rel="stylesheet" href="/node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="container-fluid">
+    <header class="justify-content-center text-center bg-dark text-white p-4">
+        <div class="title fw-bolder">BMI</div>
+        <div class="sub-title fw-bold">CALCULATOR</div>
+        <div class="fs-5 title-sub">Body Mass Index</div>
+    </header>
+    <section class="d-flex mt-5">
+        <div class="w-50 p-4">
+            <div class="row mb-5">
+                <div class="col">
+                    <div class="fw-bold mb-2">GENDER</div>
+                    <input type="radio" name="gender" id="optMale" onclick="genderCheck()"><label for="optMale"><img src="/public/images/male.png" alt="male" width="100"><br>Male</label>
+                    <input type="radio" name="gender" id="optFemale" onclick="genderCheck()"><label for="optFemale"><img src="/public/images/female.png" alt="male" width="100"><br>Female</label>
+                    <p id="gender-msg"></p>
+                </div>
+                <div class="col">
+                    <div class="mb-2 fw-bold">AGE</div>
+                    <input type="text" id="txtYears" oninput="validateNumericInput(this)"> years 
+                    <p id="age-msg">above 2 years</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="fw-bold mb-2">HEIGHT</div>
+                    <div id="height-feet">
+                        <input type="text" id="txtFt" size="6" oninput="validateNumericInput(this); HeightMeter()"> Ft
+                        <input type="text" id="txtIn" size="6" oninput="validateNumericInputInch(this); HeightMeter();"> In<br>
+                        <p id="feet-msg"></p>
+                        <button class="btn btn-link" onclick="CentimeterClick()">Switch to cm</button>
+                    </div>
+                    <div id="height-cms" style="display: none;">
+                        <input type="text" id="txtCm" size="7" oninput="validateNumericInput(this); HeightMeter()"> CM<br>
+                        <p id="cm-msg"></p>
+                        <button class="btn btn-link" onclick="InchClick()">Switch to ft & in</button>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="fw-bold mb-2">WEIGHT</div>
+                    <input type="text" id="txtWeight" size="6" oninput="validateNumericInput(this); WeightMeter();"> KG
+                    <p id="weight-msg"></p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col text-center">
+                    <button class="btn btn-primary" onclick="calculateBMI()">calculate</button>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div id="gender-body" style="display: none;">
+                <meter min="1" max="2.3" value="1.1" id="heightmeter"></meter>
+                <span class="height"></span>
+                <img src="/public/images/bmi/boy.jpg" alt="boy" width="200" id="img-gender">
+                <span class="weight"></span>
+                <meter min="1" max="220" value="20" id="weightmeter"></meter>
+            </div>
+        </div>
+    </section>
+    <section class="bg-dark text-light" style="height: 200px;">
+        <div class="p-5">
+            <div class="justify-content-center d-flex">
+                <div class="progress w-50">
+                    <div class="progress-bar bg-secondary" id="progress-underweight" style="width:25%">
+                        Underweight
+                    </div>
+                    <div class="progress-bar bg-success" id="progress-normalweight" style="width:25%">
+                        Normal Weight
+                    </div>
+                    <div class="progress-bar bg-warning" id="progress-overweight" style="width:25%">
+                        Overweight 
+                    </div>
+                    <div class="progress-bar bg-danger" id="progress-obseseweight" style="width:25%">
+                        Obsese
+                    </div>
+                </div>
+            </div>
+            <div class="d-flex justify-content-center">
+                <div class="w-50">
+                    <div class="bi bi-caret-up-fill" id="symbol"></div>
+                </div>
+            </div>
+            <p class="display-val" style="text-align: center;"></p>
+        </div>
+    </section>
+    <script src="index.js"></script>
+</body>
+</html>
+

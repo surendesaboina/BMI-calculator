@@ -1,0 +1,61 @@
+header{
+    margin: -12px;
+}
+.title{
+    font-size: 100px;
+    font-family: "Academy Engraved LET";
+    margin-bottom: -60px;
+}
+.sub-title{
+    font-size: 30px;
+}
+.title-sub{
+    word-spacing: 25px;
+}
+input[type="radio"] {
+    display: none;
+}
+
+input[type="radio"] + label {
+    display: inline-block; 
+    text-align: center;
+    cursor: pointer;
+}
+
+label img{
+    border: 1px solid black;
+    border-radius: 50%;
+    background-color: white;
+}
+input[type="radio"]:hover + label{
+    background-color: #f0f0f0;
+}
+input[type="radio"]:checked + label img{
+    outline: 2px solid transparent;
+    box-shadow: 0 0 5px 5px #0d6efd;;
+}
+
+input[type="text"]{
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+meter{
+    transform: rotate(270deg);
+    width: 225px;
+}
+.height{
+    margin-left: -100px;
+    margin-right: 50px;
+    display: inline-block;
+}
+.weight{
+    margin-left: 50px;
+    margin-right: -100px;
+}
+#gender-body{
+    margin-left: -100px;
+}
+p{
+    font-size: 11px;
+}
